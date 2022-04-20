@@ -1,0 +1,325 @@
+ul {
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+
+  li {
+    font-size: 14px;
+    background: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+    border: 1px solid rgb(240, 242, 247);
+
+    a {
+      color: rgb(152, 161, 178);
+      display: block;
+      padding: 0 10px;
+    }
+
+    &.selected {
+      background: rgb(12, 108, 242);
+      a {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-ac {
+  display: flex;
+  align-items: center;
+}
+
+.flex-slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  color: rgb(12, 108, 242);
+  text-decoration: none;
+
+  &:active {
+    color: rgb(12, 108, 242);
+  }
+}
+
+@keyframes Rotate {
+  from {
+    transform: translate(-50%, 0) rotate(0);
+  }
+
+  to {
+    transform: translate(-50%, 0) rotate(360deg);
+  }
+}
+
+.common-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 16px 0;
+}
+
+
+.loading {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-top-color: aquamarine;
+    border-right-color: aquamarine;
+    animation: Rotate 1s ease infinite;
+  }
+}
+
+.App {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 0 8px;
+  border: 1px solid rgb(223, 227, 235);
+  border-radius: 8px;
+  overflow: hidden;
+
+  .search-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: rgb(152, 161, 178);
+    }
+  }
+
+  input {
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    color: rgb(53, 63, 82);
+    border-radius: 0.255rem;
+    background-color: rgb(255, 255, 255);
+    user-select: text;
+    transition: box-shadow 0.25s ease-out 0s;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.tips {
+  text-align: center;
+  color: rgb(103, 113, 133);
+}
+
+.content {
+  .info {
+    .info-item {
+      padding: 12px 0;
+      line-height: 22px;
+      border-bottom: 1px solid rgb(223, 227, 235);
+
+      .key {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+        color: rgb(103, 113, 133);
+      }
+
+      .value {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 2;
+      }
+    }
+
+  }
+}
+
+.transactions {
+  margin-top: 32px;
+
+  .common-title {
+    margin-bottom: 16px;
+  }
+
+  .transaction {
+    & + .transaction {
+      margin-top: 48px;
+    }
+    .transaction-item {
+      width: 100%;
+      font-size: 14px;
+      line-height: 17px;
+
+      & + .transaction-item {
+        margin-top: 16px;
+      }
+
+      .transaction-item-fee {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      .item {
+        padding: 12px 0;
+      }
+
+      .half {
+        width: 50%;
+        display: flex;
+        .key {
+          color: rgb(103, 113, 133);
+          width: 100px;
+          flex-shrink: 0;
+        }
+
+        .addr {
+          & + .addr {
+            margin-top: 5px;
+          }
+        }
+
+        &.flex-end {
+          justify-content: flex-end;
+        }
+      }
+
+      .calc-width {
+        width: calc(100% - 100px);
+      }
+
+      .btc-box {
+        display: block;
+        padding: 0.25rem;
+        color: rgb(0, 135, 90);
+        background: rgb(209, 240, 219);
+        border: 1px solid rgb(209, 240, 219);
+        border-radius: 0.25rem;
+        cursor: pointer;
+        width: fit-content !important;
+        height: 27px;
+      }
+
+      .svg {
+        flex-shrink: 0;
+        width: 100px;
+        svg {
+          width: 21px;
+          height: 21px;
+        }
+      }
+
+      .btc {
+        justify-content: flex-end;
+        width: 140px;
+        flex-shrink: 0;
+        align-items: center;
+
+        svg {
+          margin-left: 5px;
+        }
+      }
+
+      .coinbase {
+        color: rgb(0, 135, 90);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-box {
+    padding-right: 50px;
+    .search-icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      background: rgb(12, 108, 242);
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  .transactions {
+    .transaction {
+      .transaction-item {
+
+        .transaction-item-fee {
+          display: block;
+        }
+
+        .transaction-item-key {
+          display: block;
+        }
+
+        .half {
+          width: 100%;
+
+          &.flex-end {
+            justify-content: flex-start;
+          }
+        }
+
+        .addr {
+          display: block;
+        }
+
+        .btc {
+          justify-content: flex-start;
+        }
+
+        .svg {
+          display: none;
+        }
+
+        .link {
+          width: 100%;
+          display: block;
+        }
+
+        .out {
+          display: flex;
+          width: 100%;
+        }
+
+        .out-content {
+          width: calc(100% - 100px);
+        }
+      }
+    }
+  }
+}
