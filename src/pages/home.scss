@@ -70,12 +70,11 @@ a {
   padding: 16px 0;
 }
 
-
 .loading {
   position: relative;
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     left: 50%;
     top: 0;
@@ -94,15 +93,20 @@ a {
   max-width: 90%;
   margin: 0 auto;
   padding: 20px 0;
+
+  .header {
+    margin-bottom: 20px;
+  }
 }
 
 .search-box {
   position: relative;
-  margin-bottom: 20px;
   padding: 0 8px;
   border: 1px solid rgb(223, 227, 235);
   border-radius: 8px;
   overflow: hidden;
+  margin-left: 10px;
+  flex: 1;
 
   .search-icon {
     width: 40px;
@@ -161,7 +165,28 @@ a {
         flex: 2;
       }
     }
+  }
 
+  .info-radio {
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border: 1px solid rgba(5, 24, 61, 0.1);
+    border-radius: 4px;
+    color: rgb(152, 161, 178);
+
+    & > div {
+      padding: 6px 12px;
+
+      &.active {
+        background: rgb(187, 219, 252);
+        color: rgb(20, 70, 153);
+      }
+
+      &:first-child {
+        border-right: 1px solid rgba(5, 24, 61, 0.1);
+      }
+    }
   }
 }
 
@@ -277,7 +302,6 @@ a {
   .transactions {
     .transaction {
       .transaction-item {
-
         .transaction-item-fee {
           display: block;
         }

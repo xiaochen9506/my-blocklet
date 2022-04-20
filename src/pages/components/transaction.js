@@ -56,7 +56,7 @@ const Transaction = (props) => {
                   <div className="mobile key">From</div>
                   <div className="calc-width">
                     {item.inputs.map((i) => (
-                      <div className="flex-slide addr">
+                      <div key={i.prev_out.addr} className="flex-slide addr">
                         {!i.prev_out.addr ? (
                           <span className="coinbase">COINBASE (Newly Generated Coins)</span>
                         ) : (
@@ -100,7 +100,7 @@ const Transaction = (props) => {
                     <div className="mobile key">To</div>
                     <div className="out-content">
                       {item.out.map((o) => (
-                        <div className="flex-slide addr" key={o.script}>
+                        <div className="flex-slide addr" key={o.addr}>
                           {o.addr ? (
                             <a
                               className="calc-width link ellipsis"

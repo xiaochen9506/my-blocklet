@@ -41,6 +41,10 @@ export const toBTC = (number, symbol = 'BTC') => {
   return `${str} ${symbol}`;
 };
 
+export const toBTCNumber = (number) => number / 100000000;
+
+export const fillNumber = (number) => (number > 9 ? number : `0${number}`);
+
 // eslint-disable-next-line no-extend-native
 export const dateFormat = (date, fmt) => {
   let str = fmt;
